@@ -15,10 +15,14 @@ import javax.ws.rs.core.MediaType;
 import com.akansh.model.Message;
 import com.akansh.service.MessageService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.SwaggerDefinition;
+import io.swagger.annotations.Tag;
+
 
 @Path("/messages")
-//@Api("/messages")
-//@SwaggerDefinition(tags = {@Tag(name="Messenger API's",description = "Rest Endpoints for Messenger Service")})
+@Api("/messages")
+@SwaggerDefinition(tags = {@Tag(name="Messenger API's",description = "Rest Endpoints for Messenger Service")})
 public class MyResource {
 
 	MessageService messageService=new MessageService();

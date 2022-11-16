@@ -15,9 +15,13 @@ import javax.ws.rs.core.MediaType;
 import com.akansh.model.Profile;
 import com.akansh.service.ProfileService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.SwaggerDefinition;
+import io.swagger.annotations.Tag;
+
 @Path("/profiles")
-//@Api("/profiles")
-//@SwaggerDefinition(tags = {@Tag(name="Profile API's",description = "Rest Endpoints for Profile Service")})
+@Api("/profiles")
+@SwaggerDefinition(tags = {@Tag(name="Profile API's",description = "Rest Endpoints for Profile Service")})
 public class ProfileResource{
 	
 	ProfileService profileService=new ProfileService();
