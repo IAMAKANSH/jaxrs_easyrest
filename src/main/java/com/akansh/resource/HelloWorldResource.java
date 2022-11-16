@@ -9,6 +9,8 @@ import javax.ws.rs.core.Response;
 import com.akansh.model.HelloWorld;
 
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.SwaggerDefinition;
 import io.swagger.annotations.Tag;
 
@@ -20,6 +22,9 @@ public class HelloWorldResource {
 	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
+	@ApiImplicitParams({
+	    @ApiImplicitParam(name = "Authorization", value = "Authorization Token", 
+	                      required = true, dataType = "string", paramType = "header") })
 	public Response helloWorld() {
 		HelloWorld helloWorld=new HelloWorld("Hello World");
 		return Response.ok(helloWorld).build();
