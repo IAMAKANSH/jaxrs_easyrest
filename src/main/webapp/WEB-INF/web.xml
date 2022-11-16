@@ -8,6 +8,22 @@
     	<param-name>resteasy.scan</param-name>
     	<param-value>true</param-value>
   	</context-param>
+  	<filter>
+        <filter-name>chatbox</filter-name>
+        <filter-class>
+            org.jboss.resteasy.plugins.server.servlet.FilterDispatcher
+        </filter-class>
+        <init-param>
+            <param-name>javax.ws.rs.Application</param-name>
+            <param-value>com.akansh.resource.RestEasyServices</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>chatbox</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
 	<servlet>
 		<servlet-name>chatbox</servlet-name>
 		<servlet-class>org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher</servlet-class>
@@ -16,10 +32,13 @@
 		<param-value>com.akansh.resource.RestEasyServices</param-value>
 		</init-param>
 	</servlet>	
+	<!--  
 	<servlet-mapping>
 	
 		<servlet-name>chatbox</servlet-name>
-		<url-pattern>/*</url-pattern>
+		<url-pattern>/service/*</url-pattern>
 		
 	</servlet-mapping>
+	-->
+	
 </web-app>
