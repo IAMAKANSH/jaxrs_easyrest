@@ -21,39 +21,38 @@ import io.swagger.annotations.Tag;
 
 @Path("/profiles")
 @Api("/profiles")
-@SwaggerDefinition(tags = {@Tag(name="Profile API's",description = "Rest Endpoints for Profile Service")})
-public class ProfileResource{
-	
-	ProfileService profileService=new ProfileService();
-	
+@SwaggerDefinition(tags = { @Tag(name = "Profile API's", description = "Rest Endpoints for Profile Service") })
+public class ProfileResource {
+
+	ProfileService profileService = new ProfileService();
+
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Profile> getProfiles() {
 		return profileService.getAllProfiles();
 	}
-	
+
 	@GET
 	@Path("/{userName}")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Profile getProfileByUserName(@PathParam(value = "userName") String userName) {
 		return profileService.getProfile(userName);
 	}
-	
+
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Profile addProfile(Profile profile) {
 		return profileService.addProfile(profile);
 	}
-	
+
 	@PUT
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Profile updateProfile(Profile profile) {
 		return profileService.updateProfile(profile);
 	}
-	
-	
+
 	@DELETE
 	@Path("/{userName}")
 	@Produces(MediaType.APPLICATION_JSON)
@@ -61,4 +60,3 @@ public class ProfileResource{
 		return profileService.removeMessage(userName);
 	}
 }
-

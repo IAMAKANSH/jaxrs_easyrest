@@ -4,10 +4,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class HelloWorld {
-	
+
 	private String message;
-	
-	
+
 	public HelloWorld() {
 		super();
 	}
@@ -24,6 +23,5 @@ public class HelloWorld {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
 
 }

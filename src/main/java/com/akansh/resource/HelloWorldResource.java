@@ -16,17 +16,15 @@ import io.swagger.annotations.Tag;
 
 @Path("/hello")
 @Api("/hello")
-@SwaggerDefinition(tags = {@Tag(name="Hello API's",description = "Rest Endpoints for Hello Service")})
+@SwaggerDefinition(tags = { @Tag(name = "Hello API's", description = "Rest Endpoints for Hello Service") })
 public class HelloWorldResource {
 
-	
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	@ApiImplicitParams({
-	    @ApiImplicitParam(name = "Authorization", value = "Authorization Token", 
-	                      required = true, dataType = "string", paramType = "header") })
+			@ApiImplicitParam(name = "Authorization", value = "Authorization Token", required = true, dataType = "string", paramType = "header") })
 	public Response helloWorld() {
-		HelloWorld helloWorld=new HelloWorld("Hello World");
+		HelloWorld helloWorld = new HelloWorld("Hello World");
 		return Response.ok(helloWorld).build();
 	}
 }
